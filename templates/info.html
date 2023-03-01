@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock title %}
+{% block body %}
+{% comment %} 
+<div class="container-fluid px-0 mb-3" >
+   <img src="https://source.unsplash.com/1200x400/?phone,contact" class="d-block w-100 mx-0" alt="...">
+</div>
+{% endcomment %}
+<style>
+   .btn-primary{
+      background-color: #b84930;
+      border-color: #b84930;
+   }
+</style>
+<div class="container mb-3 py-4">
+   <h1 class="text-center">Register Here</h1>
+   <form method="post" action='{% url "info" %}'>
+      {% csrf_token %}
+      <div class="form-group">
+         <label for="name">Name</label>
+         <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Fullname">
+      </div>
+      <div class="form-group">
+         <label for="email">Email address</label>
+         <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+      </div>
+      <div class="form-group">
+         <label for="phone">Phone Number</label>
+         <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
+      </div>
+      <div class="form-group">
+         <label for="proj">Select Your Project</label>
+         <select name="proj" id="proj">
+            <option value="drone">Drone Detection</option>
+            <option value="pothole">Pothole Counter</option>
+            <option value="facemask">Facemask Detection</option>
+            <option value="tooth">Tooth Detection</option>
+         </select>
+      </div>
+      {% comment %} 
+      <div class="form-group">
+         <label for="desc">Description</label>
+         <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+      </div>
+      {% endcomment %}
+      <button class="btn btn-primary" type="submit">Submit</button>
+   </form>
+</div>
+{% endblock body %}
